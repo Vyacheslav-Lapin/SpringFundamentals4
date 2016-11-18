@@ -5,8 +5,7 @@ import org.junit.Test;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 import static org.junit.Assert.assertEquals;
 
@@ -35,25 +34,17 @@ public class SimpleAppTest {
 	}
 
 	private UsualPerson getExpectedPerson() {
-		UsualPerson person = new UsualPerson();
-		person.setAge(35);
-		person.setHeight(1.78F);
-		person.setProgrammer(true);
-		person.setName("John Smith");
-
-		Country country = new Country();
-		country.setId(1);
-		country.setName("Russia");
-		country.setCodeName("RU");
-
-		person.setCountry(country);
-
-		List<String> contacts = new ArrayList<String>();
-		contacts.add("asd@asd.ru");
-		contacts.add("+7-234-456-67-89");
-
-		person.setContacts(contacts);
-
-		return person;
+		return UsualPerson
+				.builder()
+				.age(35)
+				.height(1.78F)
+				.isProgrammer(true)
+				.name("John Smith")
+				.country(new Country()
+						.setId(1)
+						.setName("Russia")
+						.setCodeName("RU"))
+				.contacts(Arrays.asList("asd@asd.ru", "+7-234-456-67-89"))
+				.build();
 	}
 }
