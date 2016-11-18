@@ -14,6 +14,7 @@ public class Country implements Serializable {
     private String codeName;
 
     public Country(String name, String codeName) {
-        this(0, name, codeName);
+        this.name = name;
+        this.codeName = codeName;
     }
 }
