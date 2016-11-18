@@ -20,6 +20,7 @@ public class HelloWorldTest {
 
 	@Before
 	public void setUp() throws Exception {
+
 		context = new ClassPathXmlApplicationContext(
 		        APPLICATION_CONTEXT_XML_FILE_NAME);
 		expectedPerson = getExpectedPerson();
