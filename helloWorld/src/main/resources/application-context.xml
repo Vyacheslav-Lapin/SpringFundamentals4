@@ -1,13 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
-		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:utils="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+
+    <context:annotation-config/>
+    <context:component-scan base-package="lab.model"/>
 
     <bean id="person" class="lab.model.UsualPerson"
-          p:name="John Smith" p:age="35" p:country-ref="country"/>
+          p:id="0"
+          p:name="John Smith"
+		  p:age="35"
+          p:height="1.78F"
+          p:programmer="true"/>
 
-    <bean id="country" class="lab.model.Country"
-          p:id="1" p:name="Russia" p:codeName="RU"/>
+    <utils:list id="contacts">
+        <value>asd@asd.ru</value>
+        <value>+7-234-456-67-89</value>
+    </utils:list>
+
+    <!--<bean id="country" class="lab.model.Country"-->
+          <!--p:id="1" p:name="Russia" p:codeName="RU"/>-->
 </beans>
