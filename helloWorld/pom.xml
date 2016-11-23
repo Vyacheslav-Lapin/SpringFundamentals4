@@ -17,7 +17,7 @@
     </build>
 
     <parent>
-        <groupId>com.epam.training.spring.fundamentals</groupId>
+        <groupId>com.epam.trainings.spring.fundamentals</groupId>
         <artifactId>SpringFundamentals4</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
