@@ -1,37 +1,40 @@
 package lab.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
 import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.persistence.*;
 import java.util.List;
-import java.util.stream.Collectors;
-import java.util.stream.Stream;
 
-@Entity
 @Data
-@AllArgsConstructor
-@NoArgsConstructor
-@Builder
+@Accessors(chain = true)
+@Entity
+@Component
 public class UsualPerson implements Person {
-
     @Id
     @Column
     private int id;
 
     @Column
+    @Value("John Smith")
     private String name;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "country_id")
-    @Resource
+    @Autowired
     private Country country;
 
+    @Value("35")
     private int age;
+
+    @Value("1.78")
     private float height;
+
+    @Value("true")
     private boolean isProgrammer;
 
     @Resource
@@ -39,10 +42,5 @@ public class UsualPerson implements Person {
 
     @Override
     public void sayHello(Person person) {
-        System.out.println(
-                Stream.of(UsualPerson.class.getConstructors()[0].getParameters())
-                .map(java.lang.reflect.Parameter::getName)
-                .collect(Collectors.joining(", "))
-        );
     }
 }
