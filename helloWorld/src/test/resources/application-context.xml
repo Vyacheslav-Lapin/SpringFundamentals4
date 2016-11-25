@@ -29,28 +29,8 @@
         </bean>
      -->
 
-    <bean id="countryDao" class="lab.dao.CountryDao">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
+    <bean id="countryDao" class="lab.dao.CountryDao" p:dataSource-ref="dataSource"/>
 
     <!--<jee:jndi-lookup id="dataSource" jndi-name="jdbc/jpetstore"/>-->
-
-    <!--<context:component-scan base-package="lab.model"/>-->
-    <!--<context:property-placeholder location="person.properties"/>-->
-
-    <aop:aspectj-autoproxy/>
-
-    <bean id="bar" class="lab.model.ApuBar"/>
-
-    <bean id="customer" class="lab.model.Customer"
-          p:name="Homer"
-          p:broke="true"/>
-
-    <bean id="politeness" class="lab.aop.Politeness"/>
-
-    <util:list id="contacts" value-type="java.lang.String">
-        <value>asd@asd.ru</value>
-        <value>+7-234-456-67-89</value>
-    </util:list>
 
 </beans>

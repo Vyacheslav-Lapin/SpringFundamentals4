@@ -21,8 +21,8 @@ public class JdbcTest{
 	@Autowired
 	private CountryDao countryDao;
 	
-    private List<Country> expectedCountryList = new ArrayList<Country>();
-    private List<Country> expectedCountryListStartsWithA = new ArrayList<Country>();
+    private List<Country> expectedCountryList = new ArrayList<>();
+    private List<Country> expectedCountryListStartsWithA = new ArrayList<>();
     private Country countryWithChangedName = new Country(1, "Russia", "RU");
 
     @Before
@@ -46,7 +46,7 @@ public class JdbcTest{
     @Test
     @DirtiesContext
     public void testCountryListStartsWithA() {
-        List<Country> countryList = countryDao.getCountryListStartWith("A");
+        List<Country> countryList = countryDao.getCountriesStartsWith("A");
         assertNotNull(countryList);
         assertEquals(expectedCountryListStartsWithA.size(), countryList.size());
         for (int i = 0; i < expectedCountryListStartsWithA.size(); i++) {
