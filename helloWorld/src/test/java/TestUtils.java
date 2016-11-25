@@ -14,11 +14,10 @@ interface TestUtils {
         person.setProgrammer(true);
         person.setName("John Smith");
 
-        Country country = Country.builder()
-                .id(1)
-                .name("Russia")
-                .codeName("RU")
-                .build();
+        Country country = new Country();
+        country.setId(1);
+        country.setName("Russia");
+        country.setCodeName("RU");
 
         person.setCountry(country);
 
