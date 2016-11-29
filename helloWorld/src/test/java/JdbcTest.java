@@ -23,7 +23,8 @@ public class JdbcTest{
 	
     private List<Country> expectedCountryList = new ArrayList<>();
     private List<Country> expectedCountryListStartsWithA = new ArrayList<>();
-    private Country countryWithChangedName = new Country(1, "Russia", "RU");
+    private Country countryWithChangedName = new Country(7, "Russia", "RU");
+    private Country countryWithChangedName2 = new Country(12, "Vatican", "VA");
 
     @Before
     public void setUp() throws Exception {
@@ -58,7 +59,9 @@ public class JdbcTest{
     @DirtiesContext
     public void testCountryChange() {
         countryDao.updateCountryName("RU", "Russia");
+        countryDao.updateCountryName("VA", "Vatican");
         assertEquals(countryWithChangedName, countryDao.getCountryByCodeName("RU"));
+        assertEquals(countryWithChangedName2, countryDao.getCountryByCodeName("VA"));
     }
 
     private void initExpectedCountryLists() {

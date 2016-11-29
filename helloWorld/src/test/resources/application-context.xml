@@ -18,6 +18,7 @@
 
     <jdbc:embedded-database id="dataSource">
         <jdbc:script location="classpath:db-schema.sql"/>
+        <jdbc:script location="classpath:test-data.sql"/>
     </jdbc:embedded-database>
 
     <!--

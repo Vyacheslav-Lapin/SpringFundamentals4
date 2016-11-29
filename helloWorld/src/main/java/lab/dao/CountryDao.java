@@ -26,7 +26,7 @@ public class CountryDao extends JdbcDaoSupport {
             {"Iceland", "IC"}, {"Japan", "JP"}, {"Nepal", "NP"},
             {"Russian Federation", "RU"}, {"Sweden", "SE"},
             {"Switzerland", "CH"}, {"United Kingdom", "GB"},
-            {"United States", "US"}};
+            {"United States", "US"}, {"Vatican", "VA"}};
 
     private static final RowMapper<Country> COUNTRY_ROW_MAPPER = (rs, i) ->
             Country.builder()
@@ -49,7 +49,9 @@ public class CountryDao extends JdbcDaoSupport {
     }
 
     public void updateCountryName(String codeName, String newCountryName) {
-        // TODO: implement it
+        getJdbcTemplate().execute(
+                UPDATE_COUNTRY_NAME_SQL_1 + newCountryName + "'"
+                        + UPDATE_COUNTRY_NAME_SQL_2 + codeName + "'");
     }
 
     public void loadCountries() {
