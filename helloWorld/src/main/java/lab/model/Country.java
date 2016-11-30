@@ -13,7 +13,7 @@ import java.io.Serializable;
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "COUNTRY")
+@Table(name = "country")
 public class Country implements Serializable {
 
 	@Id
