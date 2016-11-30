@@ -18,9 +18,12 @@
         http://www.springframework.org/schema/jdbc http://www.springframework.org/schema/jdbc/spring-jdbc.xsd
         http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
 
-    <!--
-        <context:component-scan base-package="lab.model, lab.dao" />
-     -->
+     <context:component-scan base-package="lab.model, lab.dao"/>
+
+    <bean id="emf" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean"
+          p:dataSource-ref="dataSource"
+          p:persistenceUnitName="springframework.lab.orm.jpa"
+          p:persistenceProviderClass="org.hibernate.ejb.HibernatePersistence"/>
 
     <jdbc:embedded-database id="dataSource">
     </jdbc:embedded-database>

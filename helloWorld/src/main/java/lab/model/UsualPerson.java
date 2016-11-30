@@ -2,9 +2,7 @@ package lab.model;
 
 import lombok.Data;
 import lombok.experimental.Accessors;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.stereotype.Component;
 
 import javax.annotation.Resource;
 import javax.persistence.*;
@@ -12,8 +10,8 @@ import java.util.List;
 
 @Data
 @Accessors(chain = true)
-@Entity
-@Component
+//@Entity
+//@Component
 public class UsualPerson implements Person {
     @Id
     @Column
@@ -25,7 +23,6 @@ public class UsualPerson implements Person {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "country_id")
-    @Autowired
     private Country country;
 
     @Value("35")
