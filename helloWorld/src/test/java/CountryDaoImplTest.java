@@ -38,8 +38,9 @@ public class CountryDaoImplTest {
 	}
 
 	@Test
-	public void testGtAllCountries() {
+	public void testGetAllCountries() {
 
+		countryDao.save(exampleCountry);
 		countryDao.save(new Country("Canada", "CA"));
 
 		List<Country> countryList = countryDao.getAllCountries();
@@ -48,6 +49,7 @@ public class CountryDaoImplTest {
 
 	@Test
 	public void testGetCountryByName() {
+		countryDao.save(exampleCountry);
 
 		Country country = countryDao.getCountryByName("Australia");
 		assertEquals(exampleCountry, country);
