@@ -11,15 +11,39 @@
 
     <properties>
         <java.version>1.8</java.version>
-        <hibernate.version>4.0.1.Final</hibernate.version>
+        <hibernate.version>4.2.0.Final</hibernate.version>
     </properties>
 
     <dependencies>
 
+        <dependency>
+            <groupId>com.mchange</groupId>
+            <artifactId>c3p0</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-dbcp</groupId>
+            <artifactId>commons-dbcp</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-logging</groupId>
+            <artifactId>commons-logging</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <dependency>
+            <groupId>commons-validator</groupId>
+            <artifactId>commons-validator</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
         <!--<dependency>-->
-            <!--<groupId>org.hibernate.javax.persistence</groupId>-->
-            <!--<artifactId>hibernate-jpa-2.0-api</artifactId>-->
-            <!--<version>RELEASE</version>-->
+        <!--<groupId>org.hibernate.javax.persistence</groupId>-->
+        <!--<artifactId>hibernate-jpa-2.0-api</artifactId>-->
+        <!--<version>RELEASE</version>-->
         <!--</dependency>-->
 
         <dependency>
@@ -34,10 +58,16 @@
             <version>${hibernate.version}</version>
         </dependency>
 
+        <dependency>
+            <groupId>org.hibernate</groupId>
+            <artifactId>hibernate-validator-annotation-processor</artifactId>
+            <version>${hibernate.version}</version>
+        </dependency>
+
         <!--<dependency>-->
-            <!--<groupId>org.hibernate</groupId>-->
-            <!--<artifactId>hibernate-entitymanager</artifactId>-->
-            <!--<version>LATEST</version>-->
+        <!--<groupId>org.hibernate</groupId>-->
+        <!--<artifactId>hibernate-entitymanager</artifactId>-->
+        <!--<version>LATEST</version>-->
         <!--</dependency>-->
 
         <dependency>
@@ -77,9 +107,9 @@
         </dependency>
 
         <!--<dependency>-->
-            <!--<groupId>org.springframework</groupId>-->
-            <!--<artifactId>spring-jdbc</artifactId>-->
-            <!--<version>LATEST</version>-->
+        <!--<groupId>org.springframework</groupId>-->
+        <!--<artifactId>spring-jdbc</artifactId>-->
+        <!--<version>LATEST</version>-->
         <!--</dependency>-->
 
         <dependency>
@@ -104,6 +134,24 @@
         <dependency>
             <groupId>org.codehaus.groovy</groupId>
             <artifactId>groovy-all</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-web</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-webmvc</artifactId>
+            <version>LATEST</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.tomcat</groupId>
+            <artifactId>servlet-api</artifactId>
             <version>LATEST</version>
         </dependency>
 
