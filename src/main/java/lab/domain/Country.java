@@ -1,4 +1,4 @@
-package lab.model;
+package lab.domain;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;

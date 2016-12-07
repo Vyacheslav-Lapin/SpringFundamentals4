@@ -1,13 +1,8 @@
 package lab.mvc;
 
-import java.util.List;
-
-import javax.validation.Valid;
-
 import lab.domain.User;
 import lab.mvc.form.bean.UserFormBean;
 import lab.service.UserService;
-
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,6 +13,9 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
+
+import javax.validation.Valid;
+import java.util.List;
 
 @Controller
 @RequestMapping("/adduser.form")
@@ -45,18 +43,17 @@ public class UserFormController {
 		if (errors.hasErrors()) {
 
 			log.info("Adduserform validation failed.");
-			return  new ModelAndView("adduserform");
+			return new ModelAndView("adduserform");
 		} else {
 			
-			List<User> userList;
 			User user = new User();
 			user.setFirstName(userFormBean.getFirstName());
 			user.setLastName(userFormBean.getLastName());
 
 			log.info("Adding new "+ user +"");
-			
+
 			userService.saveUser(user);
-			userList = userService.loadAllUsers();
+			List<User> userList = userService.loadAllUsers();
 			
 			ModelAndView mav = new ModelAndView("userlistview");
 			mav.addObject("userList", userList);

@@ -1,5 +1,5 @@
 import lab.dao.CountryDao;
-import lab.model.Country;
+import lab.domain.Country;
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
